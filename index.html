@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anshul Verma â€“ AI & Machine Learning Engineer. Building intelligent systems that solve real-world problems." />
+  <title>Anshul Verma â€“ AI & ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="home">
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CANVAS BACKGROUND â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CURSOR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        Anshul<span class="accent">.av</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+        <li><a href="profile.html"  class="nav-link" data-page="profile">Profile</a></li>
+        <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="hero" id="home">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+
+      <!-- Available badge -->
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+
+      <!-- Name block -->
+      <div class="hero-name-wrap" id="hero-name-wrap">
+        <span class="hero-greeting">Hi, I'm</span>
+        <h1 class="hero-name" id="hero-name">
+          <span class="name-char" style="--i:0">A</span><span
+               class="name-char" style="--i:1">n</span><span
+               class="name-char" style="--i:2">s</span><span
+               class="name-char" style="--i:3">h</span><span
+               class="name-char" style="--i:4">u</span><span
+               class="name-char" style="--i:5">l</span><span
+               class="name-space"> </span><span
+               class="name-char gradient-letter" style="--i:6">V</span><span
+               class="name-char gradient-letter" style="--i:7">e</span><span
+               class="name-char gradient-letter" style="--i:8">r</span><span
+               class="name-char gradient-letter" style="--i:9">m</span><span
+               class="name-char gradient-letter" style="--i:10">a</span>
+        </h1>
+      </div>
+
+      <!-- Typewriter role -->
+      <div class="hero-role" id="hero-role">
+        <span class="role-prefix">// </span>
+        <span class="role-text" id="role-text"></span>
+        <span class="role-cursor"></span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="hero-sub" id="hero-sub">
+        Building intelligent systems that solve real-world problems
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-actions" id="hero-actions">
+        <a href="projects.html" class="btn btn-primary" id="btn-work">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>View Projects</span>
+          <div class="btn-glow"></div>
+        </a>
+        <a href="contact.html" class="btn btn-ghost" id="btn-contact">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Contact Me</span>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-count="47">0</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="5">0</span>
+          <span class="stat-label">Years Exp</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">Models Built</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right visual -->
+    <div class="hero-visual" id="hero-visual">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="ai-card glass-card" id="ai-card">
+        <div class="ai-card-header">
+          <div class="ai-card-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="ai-card-label">anshul.model.run()</span>
+        </div>
+        <div class="ai-card-body">
+          <div class="terminal-line"><span class="t-key">engineer</span> <span class="t-op">=</span> <span class="t-str">"Anshul Verma"</span></div>
+          <div class="terminal-line"><span class="t-key">focus</span> <span class="t-op">=</span> <span class="t-fn">AIMLEngineer</span><span class="t-paren">(</span><span class="t-str">"real-world"</span><span class="t-paren">)</span></div>
+          <div class="terminal-line"><span class="t-key">output</span> <span class="t-op">=</span> <span class="t-fn">focus</span><span class="t-paren">.</span><span class="t-fn">build</span><span class="t-paren">()</span></div>
+          <div class="terminal-line typing"><span class="t-comment">&#x2726; Building solutions...</span></div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric"><span class="m-label">Accuracy</span><span class="m-val accent-blue">98.7%</span></div>
+            <div class="metric"><span class="m-label">Latency</span><span class="m-val accent-cyan">12ms</span></div>
+            <div class="metric"><span class="m-label">F1 Score</span><span class="m-val accent-purple">0.991</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tag-float tag-1 glass-pill">GPT-4o</div>
+      <div class="tag-float tag-2 glass-pill">PyTorch</div>
+      <div class="tag-float tag-3 glass-pill">LangChain</div>
+      <div class="tag-float tag-4 glass-pill">RAG</div>
+    </div>
+  </section>
+
+  <!-- Page nav hints at bottom -->
+  <div class="page-nav-hints">
+    <a href="about.html" class="page-hint-card">
+      <span class="hint-icon">&rarr;</span>
+      <div>
+        <span class="hint-label">Next</span>
+        <span class="hint-title">About Me</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="script.js?v=20260416162030"></script>
+</body>
+</html>
+
+

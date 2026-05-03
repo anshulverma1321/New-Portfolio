@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Anshul Verma â€“ AI & ML Engineer. B.Tech CSE (AI & ML) student building intelligent, production-ready systems." />
+  <title>About â€“ Anshul Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="about">
+
+  <canvas id="neural-canvas"></canvas>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        Anshul<span class="accent">.av</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link active" data-page="about">About</a></li>
+        <li><a href="profile.html"  class="nav-link" data-page="profile">Profile</a></li>
+        <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="page-section about-section" id="about">
+    <div class="page-bg-glow glow-purple-tl"></div>
+    <div class="page-bg-glow glow-blue-br"></div>
+    <div class="container">
+
+      <div class="section-header page-header-anim">
+        <span class="section-tag">// about_me</span>
+        <h1 class="section-title">About <span class="gradient-text">Me</span></h1>
+        <p class="section-sub">I build AI systems that go from research paper to production — and I care deeply about <em style="color:var(--cyan);font-style:normal">why</em> they work, not just that they do.</p>
+      </div>
+
+      <div class="about-grid-v2">
+
+        <!-- â”€â”€ LEFT: Visual â”€â”€ -->
+        <div class="about-visual about-animate-left">
+          <div class="about-visual-glow"></div>
+
+          <!-- Brain card -->
+          <div class="about-brain-card glass-card">
+            <svg class="brain-svg" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+              <!-- Connection lines -->
+              <g stroke="rgba(56,189,248,0.3)" stroke-width="1.2" fill="none">
+                <line class="nn-line" x1="60" y1="80"  x2="140" y2="60"/>
+                <line class="nn-line" x1="60" y1="80"  x2="140" y2="110"/>
+                <line class="nn-line" x1="60" y1="140" x2="140" y2="110"/>
+                <line class="nn-line" x1="60" y1="140" x2="140" y2="160"/>
+                <line class="nn-line" x1="60" y1="200" x2="140" y2="160"/>
+                <line class="nn-line" x1="60" y1="200" x2="140" y2="210"/>
+                <line class="nn-line" x1="140" y1="60"  x2="200" y2="80"/>
+                <line class="nn-line" x1="140" y1="110" x2="200" y2="80"/>
+                <line class="nn-line" x1="140" y1="110" x2="200" y2="140"/>
+                <line class="nn-line" x1="140" y1="160" x2="200" y2="140"/>
+                <line class="nn-line" x1="140" y1="160" x2="200" y2="200"/>
+                <line class="nn-line" x1="140" y1="210" x2="200" y2="200"/>
+                <line class="nn-line" x1="200" y1="80"  x2="270" y2="100"/>
+                <line class="nn-line" x1="200" y1="140" x2="270" y2="100"/>
+                <line class="nn-line" x1="200" y1="140" x2="270" y2="180"/>
+                <line class="nn-line" x1="200" y1="200" x2="270" y2="180"/>
+              </g>
+              <!-- Input nodes -->
+              <g fill="rgba(56,189,248,0.9)">
+                <circle class="nn-node n1" cx="60" cy="80"  r="7"/>
+                <circle class="nn-node n2" cx="60" cy="140" r="7"/>
+                <circle class="nn-node n3" cx="60" cy="200" r="7"/>
+              </g>
+              <!-- Hidden layer 1 -->
+              <g fill="rgba(168,85,247,0.9)">
+                <circle class="nn-node n4" cx="140" cy="60"  r="7"/>
+                <circle class="nn-node n5" cx="140" cy="110" r="7"/>
+                <circle class="nn-node n6" cx="140" cy="160" r="7"/>
+                <circle class="nn-node n7" cx="140" cy="210" r="7"/>
+              </g>
+              <!-- Hidden layer 2 -->
+              <g fill="rgba(34,211,238,0.9)">
+                <circle class="nn-node n8" cx="200" cy="80"  r="7"/>
+                <circle class="nn-node n1" cx="200" cy="140" r="7"/>
+                <circle class="nn-node n2" cx="200" cy="200" r="7"/>
+              </g>
+              <!-- Output -->
+              <g fill="rgba(56,189,248,1)">
+                <circle class="nn-node n3" cx="270" cy="100" r="9"/>
+                <circle class="nn-node n4" cx="270" cy="180" r="9"/>
+              </g>
+              <!-- Pulse rings -->
+              <circle cx="160" cy="140" r="30" stroke="rgba(56,189,248,0.3)" stroke-width="1" fill="none" opacity="0.15" class="pulse-ring"/>
+              <circle cx="160" cy="140" r="50" stroke="rgba(168,85,247,0.2)" stroke-width="1" fill="none" opacity="0.15" class="pulse-ring pr2"/>
+            </svg>
+
+            <div class="brain-card-footer">
+              <span class="brain-chip">
+                <span class="chip-dot"></span>
+                Model training â€“ epoch 3/âˆž
+              </span>
+            </div>
+          </div>
+
+          <!-- Floating info chips -->
+          <div class="info-chip chip-a glass-pill">
+            <span class="chip-icon">&#127891;</span> B.Tech CSE &middot; AI &amp; ML
+          </div>
+          <div class="info-chip chip-b glass-pill">
+            <span class="chip-icon">&#128205;</span> India
+          </div>
+        </div>
+
+        <!-- â”€â”€ RIGHT: Text content â”€â”€ -->
+        <div class="about-content about-animate-right">
+
+          <!-- Intro -->
+          <div class="about-intro">
+            <p class="about-lead">
+              I'm a <span class="highlight-word">B.Tech CSE (AI &amp; ML)</span> engineer who turns research into systems that actually ship &mdash; not just demos.
+            </p>
+            <p class="about-body">
+              My work sits at the intersection of <strong style="color:var(--text-primary)">machine learning and backend engineering</strong>.
+              I design and deploy LLM pipelines, RAG systems, and production-grade APIs &mdash;
+              the kind of work where model accuracy and server latency matter equally.
+              If a research paper has a promising idea, my instinct is to implement it, stress-test it, and put it in front of real users.
+            </p>
+            <p class="about-body">
+              I think in systems: every component has a purpose, every abstraction should earn its place.
+              I prefer reading source code over documentation, profiling before optimizing,
+              and shipping a working v1 over architecting a perfect v0 that never ships.
+            </p>
+          </div>
+
+          <!-- Focus area cards - reduced to 2 meaningful ones -->
+          <div class="interest-grid interest-grid-2col">
+            <div class="interest-card glass-card">
+              <div class="interest-icon-wrap blue">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <strong>LLMs &amp; ML Systems</strong>
+                <p>RAG pipelines, fine-tuning, embeddings, inference optimization</p>
+              </div>
+            </div>
+            <div class="interest-card glass-card">
+              <div class="interest-icon-wrap purple">
+                <svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <div>
+                <strong>Backend &amp; APIs</strong>
+                <p>FastAPI, async systems, REST &amp; GraphQL, production deployment</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Currently learning ticker -->
+          <div class="learning-bar">
+            <span class="learning-label">
+              <span class="badge-dot blue-anim"></span>
+              Currently learning:
+            </span>
+            <div class="learning-ticker-wrap">
+              <div class="learning-ticker" id="learning-ticker">
+                <span>Transformer Architectures</span>
+                <span>Reinforcement Learning</span>
+                <span>Kubernetes &amp; MLOps</span>
+                <span>LangGraph Agents</span>
+                <span>Rust for Systems</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page navigation hints -->
+  <div class="page-nav-hints">
+    <a href="index.html" class="page-hint-card hint-prev">
+      <span class="hint-icon">&larr;</span>
+      <div>
+        <span class="hint-label">Back</span>
+        <span class="hint-title">Home</span>
+      </div>
+    </a>
+    <a href="profile.html" class="page-hint-card">
+      <span class="hint-icon">&rarr;</span>
+      <div>
+        <span class="hint-label">Next</span>
+        <span class="hint-title">Profile</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="script.js?v=20260416162030"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Anshul Verma â€“ AI & ML Engineer. Get in touch for collaboration, opportunities or just a chat about AI." />
+  <title>Contact â€“ Anshul Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="contact">
+
+  <canvas id="neural-canvas"></canvas>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        Anshul<span class="accent">.av</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+        <li><a href="profile.html"  class="nav-link" data-page="profile">Profile</a></li>
+        <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="contact.html"  class="nav-link active" data-page="contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CONTACT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="page-section contact-section" id="contact">
+    <div class="page-bg-glow glow-blue-tl"></div>
+    <div class="page-bg-glow glow-purple-br"></div>
+    <div class="container">
+      <div class="section-header page-header-anim">
+        <span class="section-tag">// get_in_touch</span>
+        <h1 class="section-title">Let's Build <span class="gradient-text">Together</span></h1>
+        <p class="section-sub">Have a project in mind? I'm always excited to collaborate on ambitious AI and engineering challenges.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card glass-card">
+            <h3>Reach out directly</h3>
+            <div class="contact-items">
+              <a href="mailto:anshulvermaa0001@gmail.com" class="contact-item" id="contact-email">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span class="ci-label">Email</span>
+                  <span class="ci-val">anshulvermaa0001@gmail.com</span>
+                </div>
+              </a>
+              <a href="https://github.com/anshulverma1321" target="_blank" rel="noopener" class="contact-item" id="contact-github">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                </div>
+                <div>
+                  <span class="ci-label">GitHub</span>
+                  <span class="ci-val">github.com/anshulverma1321</span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/anshulverma1/" target="_blank" rel="noopener" class="contact-item" id="contact-linkedin">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div>
+                  <span class="ci-label">LinkedIn</span>
+                  <span class="ci-val">linkedin.com/in/anshulverma1</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Status card -->
+          <div class="contact-status-card glass-card">
+            <div class="status-header">
+              <span class="badge-dot"></span>
+              <span class="status-title">Current Status</span>
+            </div>
+            <div class="status-items">
+              <div class="status-item">
+                <span class="status-label">Position</span>
+                <span class="status-val">Open to Opportunities</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Response Time</span>
+                <span class="status-val accent-cyan">&lt; 24 hours</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Preferred Role</span>
+                <span class="status-val">AI / ML Engineer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form glass-card" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Ada Lovelace" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="ada@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="AI collaboration idea..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width" id="send-btn">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <div class="btn-glow"></div>
+          </button>
+          <div class="form-success" id="form-success">
+            <span>&#x2705; Message sent! I'll get back to you soon.</span>
+          </div>
+          <div class="form-error" id="form-error" style="display: none; text-align: center; padding: 12px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--radius-sm); font-size: 0.875rem; color: #fca5a5; margin-top: 12px;">
+            <span id="form-error-text">&#x274C; Failed to send message. Please try again.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo"><span class="logo-bracket">&lt;</span>Anshul<span class="accent">.av</span><span class="logo-bracket">/&gt;</span></span>
+      <p class="footer-copy">&copy; 2026 Anshul Verma &mdash; AI &amp; ML Engineer</p>
+      <div class="footer-socials">
+        <a href="https://github.com/anshulverma1321" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/anshulverma1/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page navigation hints -->
+  <div class="page-nav-hints hint-above-footer">
+    <a href="projects.html" class="page-hint-card hint-prev">
+      <span class="hint-icon">&larr;</span>
+      <div>
+        <span class="hint-label">Back</span>
+        <span class="hint-title">Projects</span>
+      </div>
+    </a>
+    <a href="index.html" class="page-hint-card">
+      <span class="hint-icon">&rarr;</span>
+      <div>
+        <span class="hint-label">Back to</span>
+        <span class="hint-title">Home</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="script.js?v=20260416162030"></script>
+</body>
+</html>
+
+

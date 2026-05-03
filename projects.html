@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Anshul Verma – AI/ML & Web Development projects including ResearchMate, Deepfake Voice Detection, Credit Card Fraud Detection, ResQ, and more." />
+  <title>Projects – Anshul Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="projects">
+
+  <canvas id="neural-canvas"></canvas>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        Anshul<span class="accent">.av</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link" data-page="about">About</a></li>
+        <li><a href="profile.html"  class="nav-link" data-page="profile">Profile</a></li>
+        <li><a href="projects.html" class="nav-link active" data-page="projects">Projects</a></li>
+        <li><a href="contact.html"  class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ PROJECTS ═══════════════════ -->
+  <section class="page-section projects-section" id="projects">
+    <div class="page-bg-glow glow-blue-tl"></div>
+    <div class="container">
+      <div class="section-header page-header-anim">
+        <span class="section-tag">// featured_work</span>
+        <h1 class="section-title">Projects That <span class="gradient-text">Ship</span></h1>
+        <p class="section-sub">Real-world AI &amp; engineering solutions, from research to production.</p>
+      </div>
+
+      <div class="skills-categories projects-filter" id="projects-filter">
+        <button class="skill-tab active" data-filter="all">All</button>
+        <button class="skill-tab" data-filter="ai">AI/ML</button>
+        <button class="skill-tab" data-filter="others">Others</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid-container">
+
+        <!-- ── AI/ML: ResearchMate ── -->
+        <article class="project-card glass-card" data-category="ai">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F4DA;</div>
+            <div class="project-links">
+              <a href="https://github.com/anshulverma1321/ResearchMate" target="_blank" class="icon-link" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+              <a href="#" class="icon-link" aria-label="Live Demo" title="Live Demo">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">ResearchMate</h3>
+          <p class="project-hook">"Turning research papers into interactive knowledge."</p>
+          <p class="project-desc">An AI-powered research assistant that processes documents and allows users to query them using LLM-based retrieval. Designed to bridge the gap between static research and real understanding.</p>
+          <span class="project-highlight">End-to-end AI system with real-world usability</span>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">LLM APIs</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Vector DB</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F4AC; Interactive Q&amp;A</span>
+            <span>&#x26A1; LLM-powered retrieval</span>
+          </div>
+        </article>
+
+        <!-- ── AI/ML: Deepfake Voice Detection ── -->
+        <article class="project-card glass-card" data-category="ai">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F3A4;</div>
+            <div class="project-links">
+              <a href="https://github.com/anshulverma1321/DeepFake-Voice-Detection" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Deepfake Voice Detection</h3>
+          <p class="project-hook">"Detecting synthetic voices using deep learning."</p>
+          <p class="project-desc">A deep learning model that classifies audio as real or AI-generated by analyzing spectrogram patterns. Built to address rising security concerns in voice synthesis.</p>
+          <span class="project-highlight">Real-world AI security application</span>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Audio Processing</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F50D; Spectrogram analysis</span>
+            <span>&#x1F6E1; Anti-deepfake</span>
+          </div>
+        </article>
+
+        <!-- ── AI/ML: Credit Card Fraud Detection ── -->
+        <article class="project-card glass-card" data-category="ai">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F4B3;</div>
+            <div class="project-links">
+              <a href="https://github.com/anshulverma1321/Credit-card-Fraud-detection" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Credit Card Fraud Detection</h3>
+          <p class="project-hook">"Identifying fraudulent transactions in real time."</p>
+          <p class="project-desc">A machine learning model trained on transaction data to detect anomalies and prevent fraud. Focused on feature engineering and model evaluation.</p>
+          <span class="project-highlight">Strong ML fundamentals + data handling</span>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Pandas</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F50D; Anomaly detection</span>
+            <span>&#x1F4CA; Feature engineering</span>
+          </div>
+        </article>
+
+        <!-- ── AI/ML: ResQ ── -->
+        <article class="project-card glass-card" data-category="ai">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F6A8;</div>
+            <div class="project-links" style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 0.8rem; font-weight: 500; color: #ffab40; background: rgba(255, 171, 64, 0.1); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid rgba(255, 171, 64, 0.3);">Currently Under Work</span>
+              <a href="https://github.com/anshulverma1321/ResQ" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+              <a href="#" class="icon-link" aria-label="Live Demo">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">ResQ</h3>
+          <p class="project-hook">"AI-driven emergency response assistance."</p>
+          <p class="project-desc">A system designed to assist in emergency situations using intelligent routing and decision support. Built with a focus on real-world impact and rapid emergency coordination.</p>
+          <span class="project-highlight">Problem-driven AI application</span>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Backend Systems</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F4CD; Smart routing</span>
+            <span>&#x26A1; Real-time response</span>
+          </div>
+        </article>
+
+        <!-- ── AI/ML: RAG Research Assistant ── -->
+        <article class="project-card glass-card" data-category="ai">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F916;</div>
+            <div class="project-links">
+              <span style="font-size: 0.8rem; font-weight: 500; color: #ffab40; background: rgba(255, 171, 64, 0.1); padding: 0.2rem 0.6rem; border-radius: 12px; border: 1px solid rgba(255, 171, 64, 0.3);">Currently Under Work</span>
+            </div>
+          </div>
+          <h3 class="project-title">RAG-Powered Research Assistant</h3>
+          <p class="project-hook">"Ask anything from your documents — get cited answers."</p>
+          <p class="project-desc">An intelligent document Q&amp;A system using Retrieval-Augmented Generation. Ingests PDFs and research papers, then answers queries with cited sources using LangChain and Pinecone.</p>
+          <span class="project-highlight">Production-ready RAG pipeline</span>
+          <div class="project-tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">FastAPI</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F4DA; PDF ingestion</span>
+            <span>&#x1F4AC; Cited answers</span>
+          </div>
+        </article>
+
+        <!-- ── OTHERS: E-Voting System ── -->
+        <article class="project-card glass-card" data-category="others">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <div class="project-icon">&#x1F5F3;&#xFE0F;</div>
+            <div class="project-links">
+              <a href="https://github.com/anshulverma1321/E-voting-System" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">E-Voting System</h3>
+          <p class="project-hook">"Secure and transparent digital voting."</p>
+          <p class="project-desc">A web-based voting platform designed to ensure integrity and accessibility in elections, with blockchain-based authentication and tamper-proof vote tracking.</p>
+          <span class="project-highlight">Blockchain-backed trust layer</span>
+          <div class="project-tags">
+            <span class="tag">Ethereum</span>
+            <span class="tag">Solidity</span>
+            <span class="tag">Truffle</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MetaMask</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <div class="project-metrics">
+            <span>&#x1F512; Secure authentication</span>
+            <span>&#x1F464; Tamper-proof votes</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Page navigation hints -->
+  <div class="page-nav-hints">
+    <a href="profile.html" class="page-hint-card hint-prev">
+      <span class="hint-icon">&larr;</span>
+      <div>
+        <span class="hint-label">Back</span>
+        <span class="hint-title">Profile</span>
+      </div>
+    </a>
+    <a href="contact.html" class="page-hint-card">
+      <span class="hint-icon">&rarr;</span>
+      <div>
+        <span class="hint-label">Next</span>
+        <span class="hint-title">Contact</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="script.js?v=20260417205000"></script>
+</body>
+</html>
