@@ -415,7 +415,7 @@ setTimeout(function() {
     errorEl.style.display = 'none';
     success.classList.remove('show');
 
-    fetch('http://localhost:8000/api/contact', {
+    fetch("https://new-portfolio-ym5j.onrender.com/api/contact", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, message: msg })
