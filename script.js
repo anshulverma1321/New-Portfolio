@@ -206,15 +206,40 @@ var PORTFOLIO_CONFIG = {
   counters.forEach(function(c) { obs.observe(c); });
 
   function animateCount(el) {
-    var target = +el.dataset.count;
+    var raw = el.dataset.count || '0';
+    var hasPlus = raw.indexOf('+') !== -1;
+    var clean = raw.replace('+', '');
+    var isPadded = clean.length > 1 && clean.startsWith('0');
+    var target = parseInt(clean, 10) || 0;
+
     var duration = 1800;
     var start = performance.now();
     function step(now) {
       var progress = Math.min((now - start) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      var current = Math.floor(eased * target);
+
+      var displayVal = String(current);
+      if (isPadded) {
+        displayVal = displayVal.padStart(clean.length, '0');
+      }
+      if (hasPlus) {
+        displayVal += '+';
+      }
+
+      el.textContent = displayVal;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        var finalVal = String(target);
+        if (isPadded) {
+          finalVal = finalVal.padStart(clean.length, '0');
+        }
+        if (hasPlus) {
+          finalVal += '+';
+        }
+        el.textContent = finalVal;
+      }
     }
     requestAnimationFrame(step);
   }
@@ -431,11 +456,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   if (!el) return;
 
   var phrases = [
-    'AI & Machine Learning Engineer',
-    'LLM Systems Architect',
-    'Deep Learning Researcher',
-    'Full-Stack AI Developer',
-    'RAG Pipeline Builder'
+    'Full Stack AI Developer',
+    'AI Systems Developer',
+    'GenAI & CV Developer',
+    'Machine Learning Engineer',
+    'LLM Application Developer'
   ];
 
   var phraseIdx = 0, charIdx = 0, deleting = false, paused = false;
