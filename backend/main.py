@@ -30,20 +30,62 @@ class ContactForm(BaseModel):
 
 @app.post("/api/contact")
 async def send_contact_email(form: ContactForm):
+    resend_api_key = os.getenv("RESEND_API_KEY")
+    receiver_email = os.getenv("RECEIVER_EMAIL", "anshulvermaa0001@gmail.com")
+
+    # If Resend API Key is set, prefer sending via HTTP (avoids Render SMTP block)
+    if resend_api_key:
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    "https://api.resend.com/emails",
+                    json={
+                        "from": "Portfolio Contact <onboarding@resend.dev>",
+                        "to": receiver_email,
+                        "subject": f"Portfolio Contact: {form.name}",
+                        "html": f"""
+                        <h3>New message from your portfolio contact form</h3>
+                        <p><strong>Name:</strong> {form.name}</p>
+                        <p><strong>Email:</strong> {form.email}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>{form.message}</p>
+                        """
+                    },
+                    headers={
+                        "Authorization": f"Bearer {resend_api_key}",
+                        "Content-Type": "application/json"
+                    },
+                    timeout=10.0
+                )
+                response.raise_for_status()
+                return {"success": True, "message": "Email sent successfully via Resend API!"}
+        except Exception as e:
+            print("\n" + "="*50)
+            print("EXCEPTION IN SEND_CONTACT_EMAIL (RESEND HTTP API):")
+            traceback.print_exc()
+            print("="*50 + "\n")
+            return JSONResponse(
+                status_code=500,
+                content={
+                    "success": False,
+                    "error": f"Resend API error: {str(e)}"
+                }
+            )
+
+    # Fallback to SMTP
     smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
     smtp_port = int(os.getenv("SMTP_PORT", 465))
     sender_email = os.getenv("EMAIL_ADDRESS")
     sender_password = os.getenv("EMAIL_APP_PASSWORD")
-    receiver_email = os.getenv("RECEIVER_EMAIL", sender_email)
 
     if not sender_email or not sender_password:
         print("\n" + "="*50)
-        print("MOCK EMAIL (Credentials missing in .env)")
+        print("MOCK EMAIL (No SMTP credentials or Resend API key in environment)")
         print(f"From: {form.email}")
         print(f"Name: {form.name}")
         print(f"Message:\n{form.message}")
         print("="*50 + "\n")
-        return {"message": "Email logged successfully! (Update .env to send real emails)"}
+        return {"success": True, "message": "Email logged successfully! (Configure RESEND_API_KEY or SMTP credentials)"}
 
     # Format the email
     msg = EmailMessage()
@@ -65,17 +107,17 @@ async def send_contact_email(form: ContactForm):
 
     try:
         await asyncio.to_thread(_send_sync)
-        return {"success": True, "message": "Email sent successfully!"}
+        return {"success": True, "message": "Email sent successfully via SMTP!"}
     except Exception as e:
         print("\n" + "="*50)
-        print("EXCEPTION IN SEND_CONTACT_EMAIL:")
+        print("EXCEPTION IN SEND_CONTACT_EMAIL (SMTP FALLBACK):")
         traceback.print_exc()
         print("="*50 + "\n")
         return JSONResponse(
             status_code=500,
             content={
                 "success": False,
-                "error": str(e)
+                "error": f"SMTP connection failed: {str(e)}. Try configuring RESEND_API_KEY environment variable on Render."
             }
         )
 
