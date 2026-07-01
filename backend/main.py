@@ -1,8 +1,10 @@
 import os
 import smtplib
 import asyncio
+import traceback
 from email.message import EmailMessage
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, EmailStr
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -63,9 +65,19 @@ async def send_contact_email(form: ContactForm):
 
     try:
         await asyncio.to_thread(_send_sync)
-        return {"message": "Email sent successfully!"}
+        return {"success": True, "message": "Email sent successfully!"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+        print("\n" + "="*50)
+        print("EXCEPTION IN SEND_CONTACT_EMAIL:")
+        traceback.print_exc()
+        print("="*50 + "\n")
+        return JSONResponse(
+            status_code=500,
+            content={
+                "success": False,
+                "error": str(e)
+            }
+        )
 
 @app.get("/api/stats/github")
 async def get_github_stats():
