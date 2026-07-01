@@ -85,27 +85,55 @@
             </div>
             <div class="profile-stats" id="lc-stats">
               <div class="pstat">
-                <span class="pstat-num" id="lc-total" style="color:#fbbf24">—</span>
+                <span class="pstat-num" id="lc-total" style="color:#fbbf24">57</span>
                 <span class="pstat-label">Solved</span>
               </div>
               <div class="pstat-divider"></div>
               <div class="pstat">
-                <span class="pstat-num" id="lc-easy" style="color:#22c55e">—</span>
+                <span class="pstat-num" id="lc-easy" style="color:#22c55e">25</span>
                 <span class="pstat-label">Easy</span>
               </div>
               <div class="pstat-divider"></div>
               <div class="pstat">
-                <span class="pstat-num" id="lc-medium" style="color:#f97316">—</span>
+                <span class="pstat-num" id="lc-medium" style="color:#f97316">28</span>
                 <span class="pstat-label">Med</span>
               </div>
               <div class="pstat-divider"></div>
               <div class="pstat">
-                <span class="pstat-num" id="lc-hard" style="color:#ef4444">—</span>
+                <span class="pstat-num" id="lc-hard" style="color:#ef4444">4</span>
                 <span class="pstat-label">Hard</span>
               </div>
             </div>
             <div class="profile-fetch-status" id="lc-status"></div>
-            <div class="profile-heatmap" id="lc-heatmap"></div>
+            <div class="lc-progress-container">
+              <div class="lc-progress-row">
+                <div class="lc-progress-info">
+                  <span class="lc-progress-label" style="color: #22c55e;">Easy</span>
+                  <span class="lc-progress-val" id="lc-easy-val">25</span>
+                </div>
+                <div class="lc-progress-track">
+                  <div class="lc-progress-fill easy" id="lc-easy-bar" style="width: 44%;"></div>
+                </div>
+              </div>
+              <div class="lc-progress-row">
+                <div class="lc-progress-info">
+                  <span class="lc-progress-label" style="color: #f97316;">Medium</span>
+                  <span class="lc-progress-val" id="lc-med-val">28</span>
+                </div>
+                <div class="lc-progress-track">
+                  <div class="lc-progress-fill medium" id="lc-med-bar" style="width: 49%;"></div>
+                </div>
+              </div>
+              <div class="lc-progress-row">
+                <div class="lc-progress-info">
+                  <span class="lc-progress-label" style="color: #ef4444;">Hard</span>
+                  <span class="lc-progress-val" id="lc-hard-val">4</span>
+                </div>
+                <div class="lc-progress-track">
+                  <div class="lc-progress-fill hard" id="lc-hard-bar" style="width: 7%;"></div>
+                </div>
+              </div>
+            </div>
             <a href="https://leetcode.com/u/anshulverma_1" target="_blank" rel="noopener" class="profile-btn lc-btn" id="btn-leetcode">
               <span>View Profile</span>
               <svg viewBox="0 0 24 24" width="16" height="16"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
@@ -131,22 +159,21 @@
             </div>
             <div class="profile-stats" id="gh-stats">
               <div class="pstat">
-                <span class="pstat-num" id="gh-repos" style="color:var(--blue)">—</span>
+                <span class="pstat-num" id="gh-repos" style="color:var(--blue)">27</span>
                 <span class="pstat-label">Repos</span>
               </div>
               <div class="pstat-divider"></div>
               <div class="pstat">
-                <span class="pstat-num" id="gh-stars" style="color:var(--cyan)">—</span>
+                <span class="pstat-num" id="gh-stars" style="color:var(--cyan)">19</span>
                 <span class="pstat-label">Stars</span>
               </div>
               <div class="pstat-divider"></div>
               <div class="pstat">
-                <span class="pstat-num" id="gh-followers" style="color:var(--purple)">—</span>
+                <span class="pstat-num" id="gh-followers" style="color:var(--purple)">7</span>
                 <span class="pstat-label">Followers</span>
               </div>
             </div>
             <div class="profile-fetch-status" id="gh-status"></div>
-            <div class="profile-heatmap" id="gh-heatmap"></div>
             <a href="https://github.com/anshulverma1321" target="_blank" rel="noopener" class="profile-btn gh-btn" id="btn-github">
               <span>View Profile</span>
               <svg viewBox="0 0 24 24" width="16" height="16"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>

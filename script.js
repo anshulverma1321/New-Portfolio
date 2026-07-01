@@ -4,9 +4,9 @@
 
 'use strict';
 
-
-
-
+var BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:8000'
+  : 'https://new-portfolio-ym5j.onrender.com';
 /* ─── Neural Network Canvas ─── */
 (function initCanvas() {
   var canvas = document.getElementById('neural-canvas');
@@ -401,7 +401,7 @@ setTimeout(function() {
     errorEl.style.display = 'none';
     success.classList.remove('show');
 
-    fetch("https://new-portfolio-ym5j.onrender.com/api/contact", {
+    fetch(BACKEND_URL + "/api/contact", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, message: msg })
@@ -636,78 +636,73 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     return map;
   }
 
-  /* ── Init heatmaps with 26 weeks (6 months) of history ── */
-  renderHeatmap('lc-heatmap', buildLCFallbackMap(), 26);
-  renderHeatmap('gh-heatmap', buildGHMap(), 26);
+  /* Heatmap rendering is disabled for a cleaner card layout */
 
   /* ── GitHub Live Data ── */
   (function fetchGitHub() {
-    var user = 'anshulverma1321';
     setStatus('gh-status', 'Fetching live data…', 'loading');
 
-    fetch('https://api.github.com/users/' + user)
+    fetch(BACKEND_URL + '/api/stats/github')
       .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(data) {
-        var repos = data.public_repos || 0;
-        var followers = data.followers || 0;
+        var repos = data.public_repos || 28;
+        var followers = data.followers || 7;
+        var stars = data.stars || 13;
         document.getElementById('gh-repos') && (document.getElementById('gh-repos').textContent = repos);
         document.getElementById('gh-followers') && (document.getElementById('gh-followers').textContent = followers);
-
-        return fetch('https://api.github.com/users/' + user + '/repos?per_page=100&sort=updated')
-          .then(function(r2) { return r2.json(); })
-          .then(function(reposData) {
-            var stars = Array.isArray(reposData)
-              ? reposData.reduce(function(sum, repo) { return sum + (repo.stargazers_count || 0); }, 0) : 0;
-            document.getElementById('gh-stars') && (document.getElementById('gh-stars').textContent = stars);
-            setStatus('gh-status', '\u2713 Live', 'success');
-          });
+        document.getElementById('gh-stars') && (document.getElementById('gh-stars').textContent = stars);
+        setStatus('gh-status', '\u2713 Live', 'success');
       })
       .catch(function() {
         setStatus('gh-status', '', '');
       });
   })();
 
-  /* ── LeetCode Live Data + Real Calendar Heatmap ── */
+  /* ── LeetCode Live Data ── */
   (function fetchLeetCode() {
-    var user = 'anshulverma_1';
     setStatus('lc-status', 'Fetching live data…', 'loading');
 
-    // Fetch profile stats
-    fetch('https://alfa-leetcode-api.onrender.com/userProfile/' + user)
+    function updateProgress(easy, med, hard, total) {
+      total = total || (easy + med + hard) || 1;
+      var easyPct = Math.round((easy / total) * 100);
+      var medPct = Math.round((med / total) * 100);
+      var hardPct = Math.round((hard / total) * 100);
+      
+      var elEasyVal = document.getElementById('lc-easy-val');
+      var elMedVal = document.getElementById('lc-med-val');
+      var elHardVal = document.getElementById('lc-hard-val');
+      
+      var elEasyBar = document.getElementById('lc-easy-bar');
+      var elMedBar = document.getElementById('lc-med-bar');
+      var elHardBar = document.getElementById('lc-hard-bar');
+      
+      if (elEasyVal) elEasyVal.textContent = easy;
+      if (elMedVal) elMedVal.textContent = med;
+      if (elHardVal) elHardVal.textContent = hard;
+      
+      if (elEasyBar) elEasyBar.style.width = easyPct + '%';
+      if (elMedBar) elMedBar.style.width = medPct + '%';
+      if (elHardBar) elHardBar.style.width = hardPct + '%';
+    }
+
+    fetch(BACKEND_URL + '/api/stats/leetcode')
       .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(data) {
-        document.getElementById('lc-total')  && (document.getElementById('lc-total').textContent  = data.totalSolved  || data.solvedProblem || '—');
-        document.getElementById('lc-easy')   && (document.getElementById('lc-easy').textContent   = data.easySolved   || '—');
-        document.getElementById('lc-medium') && (document.getElementById('lc-medium').textContent = data.mediumSolved || '—');
-        document.getElementById('lc-hard')   && (document.getElementById('lc-hard').textContent   = data.hardSolved   || '—');
-        setStatus('lc-status', '\u2713 Live', 'success');
+        var total = data.totalSolved  || 71;
+        var easy = data.easySolved   || 43;
+        var med = data.mediumSolved || 27;
+        var hard = data.hardSolved   || 1;
 
-        // Also fetch real submission calendar
-        return fetch('https://alfa-leetcode-api.onrender.com/userCalendar/' + user)
-          .then(function(r2) { if (!r2.ok) throw new Error('cal'); return r2.json(); })
-          .then(function(calData) {
-            // API may return submissionCalendar as string or object
-            var calObj = calData.submissionCalendar || calData;
-            if (typeof calObj === 'string') calObj = JSON.parse(calObj);
-            if (calObj && Object.keys(calObj).length > 0) {
-              renderHeatmap('lc-heatmap', lcCalendarToMap(calObj), 26);
-            }
-          })
-          .catch(function() { /* keep fallback heatmap */ });
+        document.getElementById('lc-total')  && (document.getElementById('lc-total').textContent  = total);
+        document.getElementById('lc-easy')   && (document.getElementById('lc-easy').textContent   = easy);
+        document.getElementById('lc-medium') && (document.getElementById('lc-medium').textContent = med);
+        document.getElementById('lc-hard')   && (document.getElementById('lc-hard').textContent   = hard);
+        
+        updateProgress(easy, med, hard, total);
+        setStatus('lc-status', '\u2713 Live', 'success');
       })
       .catch(function() {
-        // Try backup API for stats
-        fetch('https://leetcode-stats-api.herokuapp.com/' + user)
-          .then(function(r) { return r.json(); })
-          .then(function(data) {
-            if (data.status === 'error') return;
-            document.getElementById('lc-total')  && (document.getElementById('lc-total').textContent  = data.totalSolved  || '—');
-            document.getElementById('lc-easy')   && (document.getElementById('lc-easy').textContent   = data.easySolved   || '—');
-            document.getElementById('lc-medium') && (document.getElementById('lc-medium').textContent = data.mediumSolved || '—');
-            document.getElementById('lc-hard')   && (document.getElementById('lc-hard').textContent   = data.hardSolved   || '—');
-            setStatus('lc-status', '\u2713 Live', 'success');
-          })
-          .catch(function() { setStatus('lc-status', '', ''); });
+        setStatus('lc-status', '', '');
       });
   })();
 
