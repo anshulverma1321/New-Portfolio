@@ -4,21 +4,7 @@
 
 'use strict';
 
-/* ─── PORTFOLIO CONFIG ───────────────────────────────────────────────────
-   Update these values manually whenever your stats change.
-   LinkedIn has no public API, so this is the single source of truth.
-   ─────────────────────────────────────────────────────────────────────── */
-var PORTFOLIO_CONFIG = {
-  linkedin: {
-    connections: 258   // ← UPDATE THIS when you get new connections
-  }
-};
 
-/* Inject config values into the DOM */
-(function applyConfig() {
-  var el = document.getElementById('li-connections');
-  if (el) el.textContent = PORTFOLIO_CONFIG.linkedin.connections;
-})();
 
 
 /* ─── Neural Network Canvas ─── */
