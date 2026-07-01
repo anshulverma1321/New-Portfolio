@@ -1,5 +1,6 @@
 import os
 import smtplib
+import asyncio
 from email.message import EmailMessage
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, EmailStr
@@ -49,16 +50,19 @@ async def send_contact_email(form: ContactForm):
     msg["From"] = sender_email
     msg["To"] = receiver_email
 
-    try:
+    def _send_sync():
         if smtp_port == 465:
-            with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
+            with smtplib.SMTP_SSL(smtp_server, smtp_port, timeout=10.0) as server:
                 server.login(sender_email, sender_password)
                 server.send_message(msg)
         else:
-            with smtplib.SMTP(smtp_server, smtp_port) as server:
+            with smtplib.SMTP(smtp_server, smtp_port, timeout=10.0) as server:
                 server.starttls()
                 server.login(sender_email, sender_password)
                 server.send_message(msg)
+
+    try:
+        await asyncio.to_thread(_send_sync)
         return {"message": "Email sent successfully!"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")

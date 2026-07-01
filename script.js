@@ -405,11 +405,16 @@ setTimeout(function() {
     errorEl.style.display = 'none';
     success.classList.remove('show');
 
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function() { controller.abort(); }, 15000); // 15-second timeout
+
     fetch(BACKEND_URL + "/api/contact", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, message: msg })
+      body: JSON.stringify({ name: name, email: email, message: msg }),
+      signal: controller.signal
     }).then(function(response) {
+      clearTimeout(timeoutId);
       if (!response.ok) throw new Error('Failed');
       btn.querySelector('span').textContent = 'Send Message';
       btn.disabled = false;
@@ -417,11 +422,16 @@ setTimeout(function() {
       form.reset();
       success.classList.add('show');
       setTimeout(function() { success.classList.remove('show'); }, 5000);
-    }).catch(function() {
+    }).catch(function(err) {
+      clearTimeout(timeoutId);
       btn.querySelector('span').textContent = 'Send Message';
       btn.disabled = false;
       btn.style.opacity = '';
-      errorTxt.textContent = 'Failed to send. Is the backend running?';
+      if (err.name === 'AbortError') {
+        errorTxt.textContent = 'Connection timeout. Please try again.';
+      } else {
+        errorTxt.textContent = 'Failed to send. Is the backend running?';
+      }
       errorEl.style.display = 'block';
       setTimeout(function() { errorEl.style.display = 'none'; }, 5000);
     });
